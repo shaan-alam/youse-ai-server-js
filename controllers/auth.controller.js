@@ -110,8 +110,10 @@ const register = (req, res) =>
         password,
       });
       res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
+        httpOnly: true, // Cookie can't be accessed via JavaScript
+        secure: true, // Ensures cookie is only sent over HTTPS
+        sameSite: "None", // Allows cross-origin cookie sharing
+        domain: "youseai-frontend.vercel.app", // Set to your frontend's domain
       });
       res.json({ user, token });
     } catch (err) {
@@ -133,8 +135,10 @@ const login = (req, res) =>
         return res.status(status_code).json({ message: error });
       }
       res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
+        httpOnly: true, // Cookie can't be accessed via JavaScript
+        secure: true, // Ensures cookie is only sent over HTTPS
+        sameSite: "None", // Allows cross-origin cookie sharing
+        domain: "youseai-frontend.vercel.app", // Set to your frontend's domain
       });
       res.json({ user, token });
     } catch (err) {

@@ -13,9 +13,9 @@ const task_route_1 = __importDefault(require("./routes/task.route"));
 const app = (0, express_1.default)();
 const PORT = env_1.default.PORT || 5000;
 const allowedOrigins = [
-    "https://youseai-frontend.vercel.app",
-    "https://youseai-frontend-git-main-shaan71845s-projects.vercel.app",
-    "https://youseai-frontend-dodyvocy0-shaan71845s-projects.vercel.app",
+    "https://youseai-frontend.vercel.app.",
+    "https://youseai-frontend-git-main-shaan71845s-projects.vercel.app/",
+    "https://youseai-frontend-dodyvocy0-shaan71845s-projects.vercel.app/",
 ];
 // Define CORS options with types
 const corsOptions = {
