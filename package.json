@@ -1,12 +1,10 @@
 {
-  
-  "name": "server",
+  "name": "youse-ai-server-js",
   "version": "1.0.0",
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "node app.js",
-    
+    "start": "node app.js"
   },
   "_moduleAliases": {
     "@modules": "dist/rest/modules",
