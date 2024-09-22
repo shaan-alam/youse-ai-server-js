@@ -112,7 +112,7 @@ const register = (req, res) =>
       res.cookie("token", token, {
         httpOnly: true, // Cookie can't be accessed via JavaScript
         secure: true, // Ensures cookie is only sent over HTTPS
-        domain: "youseai-frontend.vercel.app", // Set to your frontend's domain
+        domain: "https://youseai-frontend.vercel.app", // Set to your frontend's domain
       });
       res.json({ user, token });
     } catch (err) {
@@ -136,7 +136,7 @@ const login = (req, res) =>
       res.cookie("token", token, {
         httpOnly: true, // Cookie can't be accessed via JavaScript
         secure: true, // Ensures cookie is only sent over HTTPS
-        domain: "youseai-frontend.vercel.app", // Set to your frontend's domain
+        domain: "https://youseai-frontend.vercel.app", // Set to your frontend's domain
       });
       res.json({ user, token });
     } catch (err) {
