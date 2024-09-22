@@ -1,9 +1,7 @@
 "use strict";
-var __importDefault =
-  (this && this.__importDefault) ||
-  function (mod) {
-    return mod && mod.__esModule ? mod : { default: mod };
-  };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const db_1 = __importDefault(require("./config/db"));
 const cors_1 = __importDefault(require("cors"));
@@ -15,38 +13,39 @@ const task_route_1 = __importDefault(require("./routes/task.route"));
 const app = (0, express_1.default)();
 const PORT = env_1.default.PORT || 5000;
 const allowedOrigins = [
-  "https://youseai-frontend.vercel.app",
-  "https://youseai-frontend-git-main-shaan71845s-projects.vercel.app",
-  "https://youseai-frontend-dodyvocy0-shaan71845s-projects.vercel.app",
+    "https://youseai-frontend.vercel.app",
+    "https://youseai-frontend-git-main-shaan71845s-projects.vercel.app",
+    "https://youseai-frontend-dodyvocy0-shaan71845s-projects.vercel.app",
 ];
 // Define CORS options with types
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true, // If you're using cookies or authentication
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+            callback(null, true);
+        }
+        else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true, // If you're using cookies or authentication
 };
 app.use((0, cors_1.default)(corsOptions));
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, DELETE, PATCH"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-  res.setHeader("Access-Control-Allow-Credentials", "true");
-  next();
-});
+// app.use(function (req, res, next) {
+//   res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+//   res.setHeader(
+//     "Access-Control-Allow-Methods",
+//     "GET, POST, PUT, DELETE, PATCH"
+//   );
+//   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//   res.setHeader("Access-Control-Allow-Credentials", "true");
+//   next();
+// });
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
 app.use("/auth", auth_route_1.default);
 app.use("/task", task_route_1.default);
 app.listen(PORT, () => {
-  console.log(`Connected to server on PORT ${PORT}`);
-  (0, db_1.default)();
+    console.log(`Connected to server on PORT ${PORT}`);
+    (0, db_1.default)();
 });
 //# sourceMappingURL=app.js.map
